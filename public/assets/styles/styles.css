@@ -1,0 +1,2621 @@
+/* =========================
+   ALIVIATECH - ESTILOS GLOBALES
+   ========================= */
+:root {
+  --primary: #16B2B1;
+  --primary-dark: #0f8e8d;
+  --page-bg: #f3f4f6;
+  --text: #0f172a;
+  --muted: #64748b;
+  --radius: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* =========================
+   HEADER / NAVBAR GLOBAL
+   ========================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: .75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.brand img {
+  height: 50px;
+  width: auto;
+}
+
+.brand span {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+  transition: color .2s ease;
+  font-size: .9rem;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+  color: var(--primary);
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .4rem .9rem;
+  font-weight: 600;
+}
+
+/* para que el contenido no se meta debajo del header */
+main {
+  padding-top: 80px;
+}
+
+/* =========================
+   HOME HERO (solo index)
+   ========================= */
+.home-hero {
+  max-width: 1200px;
+  margin: 1.5rem auto 2.5rem auto;
+  background: linear-gradient(135deg, #4f7cf9 0%, #8a5bfd 50%, #16B2B1 100%);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 2rem;
+  color: #fff;
+}
+
+.home-hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .7rem;
+  opacity: .7;
+  margin-bottom: .5rem;
+}
+
+.home-hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  line-height: 1.05;
+  margin-bottom: .75rem;
+}
+
+.home-hero p {
+  max-width: 34rem;
+  opacity: .9;
+}
+
+.hero-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: .75rem;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #0f172a;
+  border: none;
+  padding: .55rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.5);
+  color: #fff;
+  border-radius: 9999px;
+  padding: .55rem 1.2rem;
+  text-decoration: none;
+}
+
+.hero-visual {
+  display: grid;
+  gap: .75rem;
+  justify-items: end;
+}
+
+.hero-visual .device {
+  background: #f5f5f5;
+  border-radius: 1.4rem;
+  padding: 1rem;
+}
+
+.hero-visual .device img {
+  width: 280px;
+  max-width: 100%;
+  display: block;
+}
+
+.kpi-card {
+  background: rgba(2, 6, 23, .35);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 1rem;
+  padding: .6rem .8rem;
+  width: min(240px, 100%);
+}
+
+.kpi-card h4 {
+  margin-bottom: .25rem;
+  font-size: .85rem;
+}
+
+/* =========================
+   BANDA MORADA (otras páginas)
+   ========================= */
+.page-hero {
+  background: linear-gradient(135deg, #4f7cf9 0%, #8a5bfd 40%, #16B2B1 100%);
+  padding: 3.5rem 1rem 2rem 1rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.page-hero h1 {
+  font-size: 2rem;
+  margin-bottom: .4rem;
+}
+
+.page-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  opacity: .8;
+}
+
+/* =========================
+   SECCIONES GENERALES
+   ========================= */
+.section,
+.features {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-title h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: .35rem;
+}
+
+.section-title p {
+  color: #64748b;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, .12);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, .03);
+}
+
+.feature-card h3 {
+  margin-bottom: .4rem;
+  color: #0f172a;
+}
+
+/* =========================
+   PULSERA INTELIGENTE CON IA (inicio)
+   ========================= */
+.pulsera-ia {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.pulsera-ia .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.pulsera-ia .card {
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, .12);
+  border-radius: 1rem;
+  padding: 1rem;
+  min-height: 150px;
+  transition: transform .2s ease;
+}
+
+.pulsera-ia .card:hover {
+  transform: translateY(-4px);
+}
+
+.pulsera-ia .card h3 {
+  color: #16B2B1;
+  margin-bottom: .4rem;
+}
+
+/* =========================
+   ALIADOS
+   ========================= */
+.aliados {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.aliados-logos {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.aliados-logos img {
+  width: 90px;
+  height: auto;
+  background: #fff;
+  border-radius: .75rem;
+  padding: .4rem .6rem;
+  box-shadow: 0 2px 10px rgba(15,23,42,.04);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.site-footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem auto;
+  display: grid;
+  grid-template-columns: 1.1fr .6fr .6fr;
+  gap: 2rem;
+}
+
+.footer-brand {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.footer-brand img {
+  height: 34px;
+}
+
+.footer-links a {
+  display: block;
+  color: #e2e8f0;
+  text-decoration: none;
+  margin-bottom: .25rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.social {
+  display: flex;
+  gap: .65rem;
+  margin-top: .6rem;
+}
+
+.social a {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: rgba(226, 232, 240, .15);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: .65rem;
+  text-decoration: none;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: .75rem;
+  opacity: .6;
+}
+
+/* =========================
+   TABLAS (por si las usas)
+   ========================= */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, .1);
+}
+
+.table th,
+.table td {
+  padding: .5rem .75rem;
+  border-bottom: 1px solid rgba(148, 163, 184, .06);
+  text-align: left;
+}
+
+.table th {
+  background: rgba(148, 163, 184, .08);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 950px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-visual {
+    justify-items: start;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: inline-flex;
+  }
+}
+
+/* ====== extras ====== */
+
+.hero-sub {
+  margin-top: .5rem;
+  opacity: .85;
+}
+
+/* planes */
+.plans .center {
+  text-align: center;
+}
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+.plan-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.2rem 1rem;
+  border: 1px solid rgba(15,23,42,.04);
+  box-shadow: 0 4px 14px rgba(15,23,42,.04);
+}
+.plan-card .price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: .25rem 0 .75rem 0;
+}
+.plan-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1rem;
+  color: #475569;
+}
+.plan-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: .55rem 1rem;
+  border-radius: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.plan-card.featured {
+  border: 1px solid rgba(22,178,177,.35);
+  transform: translateY(-5px);
+}
+
+/* about */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+.about-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(148,163,184,.08);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.team-card {
+  background: #fff;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(15,23,42,.03);
+}
+.team-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 9999px;
+  object-fit: cover;
+  margin-bottom: .5rem;
+}
+
+/* chat pulsera */
+.chat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.chat-info h3 {
+  margin-top: .5rem;
+}
+.chat-demo {
+  background: #0f172a;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.chat-bot {
+  background: rgba(255,255,255,.12);
+  padding: .55rem .75rem;
+  border-radius: .75rem;
+}
+.chat-user {
+  background: rgba(22,178,177,.8);
+  align-self: flex-end;
+  padding: .45rem .75rem;
+  border-radius: .75rem;
+}
+
+/* app downloads */
+.download-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.store {
+  background: #fff;
+  color: #0f172a;
+  padding: .5rem 1.2rem;
+  border-radius: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.download-note {
+  width: 100%;
+  text-align: center;
+  font-size: .7rem;
+  opacity: .9;
+  margin-top: .25rem;
+}
+
+/* doctors (versión general) */
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+.doctor-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(15,23,42,.03);
+}
+.doctor-card img {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: .5rem;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* responsive extras */
+@media (max-width: 850px) {
+  .chat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== SOBRE NOSOTROS ===== */
+.about-split {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 2rem;
+  align-items: center;
+}
+.about-text .eyebrow-small {
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .7rem;
+  color: #7c3aed;
+  margin-bottom: .4rem;
+}
+.about-text h2 {
+  font-size: 1.9rem;
+  margin-bottom: .5rem;
+}
+.about-text p {
+  color: #475569;
+  margin-bottom: .5rem;
+}
+.about-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: .75rem;
+}
+.about-photos img {
+  width: 100%;
+  border-radius: .75rem;
+  object-fit: cover;
+}
+
+/* focos */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.focus-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 3px 12px rgba(15,23,42,.03);
+}
+
+/* team band */
+.team-band {
+  background: #0f172a;
+  color: #fff;
+  margin-top: 3rem;
+  padding: 3rem 1rem;
+}
+.team-band-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.team-band-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.team-card2 {
+  background: rgba(15,23,42,.35);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.team-card2 img {
+  width: 70px;
+  height: 70px;
+  border-radius: .75rem;
+  object-fit: cover;
+}
+.team-card2 .role {
+  font-size: .75rem;
+  opacity: .9;
+  margin-bottom: .35rem;
+}
+.team-card2 .mail {
+  font-size: .7rem;
+  opacity: .7;
+}
+
+/* ===== APP PAGE ===== */
+.app-hero {
+  max-width: 1100px;
+  margin: 90px auto 2.5rem auto;
+  background: linear-gradient(135deg, #6b5bff 0%, #a16fff 60%);
+  border-radius: 1.3rem;
+  padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1.05fr .7fr;
+  gap: 1.5rem;
+  color: #fff;
+}
+.app-hero-device img {
+  max-width: 270px;
+  border-radius: 1rem;
+}
+.app-feature-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.app-feature-card,
+.app-col-card,
+.faq-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 3px 9px rgba(15,23,42,.03);
+}
+.app-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+/* responsive páginas específicas */
+@media (max-width: 950px) {
+  .about-split,
+  .app-hero {
+    grid-template-columns: 1fr;
+  }
+  .app-hero {
+    text-align: left;
+  }
+}
+
+/* --- SOBRE NOSOTROS - alineado como mock --- */
+.about-photos img {
+  width: 100%;
+  border-radius: 1.1rem;
+  display: block;
+}
+
+/* banda oscura centrada */
+.team-band {
+  background: #0f172a;
+  color: #fff;
+  padding: 3rem 1rem 2.4rem 1rem;
+  margin-top: 2.5rem;
+}
+.team-band-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.team-band-inner h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+.team-band-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1.2rem;
+}
+.team-card2 {
+  background: rgba(6,13,26,.35);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 1.1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.team-card2 img {
+  width: 95px;
+  height: 95px;
+  border-radius: 1rem;
+  object-fit: cover;
+  flex: 0 0 95px;
+}
+.team-card2 .role {
+  font-size: .75rem;
+  opacity: .85;
+}
+.team-card2 .mail {
+  font-size: .7rem;
+  margin-top: .5rem;
+  display: inline-block;
+  background: rgba(255,255,255,.08);
+  padding: .25rem .7rem;
+  border-radius: 9999px;
+}
+.consultorio-cta {
+  background: #fff;
+  border-radius: 0 0 1.2rem 1.2rem;
+}
+
+/* --- APP más vistosa --- */
+.app-hero.full-banner {
+  max-width: 100%;
+  margin: 90px 0 2.5rem 0;
+  border-radius: 0;
+  display: grid;
+  grid-template-columns: 1.1fr .7fr;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #645cf9 0%, #a25fff 55%, #21bfb2 100%);
+  padding: 2.6rem clamp(1.2rem, 5vw, 3.6rem);
+}
+.app-hero .white-card {
+  background: #fff;
+  border-radius: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 240px;
+}
+.app-hero .white-card img {
+  max-width: 255px;
+}
+.app-cta-bottom {
+  background: #edf0f4;
+  border-radius: 1.3rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+  padding: 1.7rem 1rem;
+}
+
+/* ======================================================
+   PORTAL: centrar botones y hacer cards más elegantes
+   ====================================================== */
+
+/* Hero del portal */
+.portal-hero {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+}
+.portal-hero .hero-actions {
+  justify-content: center;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+.portal-hero .btn-primary,
+.portal-hero .btn-outline {
+  font-size: 1rem;
+  padding: 0.65rem 1.5rem;
+}
+
+/* bloque flotante "¿Por qué elegir AliviaTech?" */
+.portal-features {
+  background: #ffffff;
+  max-width: 1100px;
+  margin: -40px auto 2.5rem auto;
+  border-radius: 1.3rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.portal-features h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+.portal-features .feature-grid {
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.portal-features .feature-card {
+  background: #f9fafb;
+  border: 1px solid rgba(148,163,184,.06);
+  border-radius: 1rem;
+  padding: 1.25rem 1.1rem;
+  transition: all .2s ease;
+}
+.portal-features .feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(15,23,42,.08);
+}
+
+/* sección de psicólogos dentro de un panel blanco */
+.doctor-section {
+  background: #fff;
+  padding: 4rem 1rem 4.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 20px rgba(15,23,42,.05);
+}
+.doctor-section h2 {
+  text-align: center;
+  font-size: 1.9rem;
+  margin-bottom: .35rem;
+  color: #0f172a;
+}
+.doctor-section p {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2.3rem;
+}
+
+/* grid más centrada y con gap mayor */
+.doctor-section .doctor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* cards más altas y elegantes */
+.doctor-section .doctor-card {
+  background: #fff;
+  border-radius: 1.15rem;
+  box-shadow: 0 6px 20px rgba(15,23,42,.08);
+  width: 260px;
+  padding: 1.25rem 1.1rem 1.1rem 1.1rem;
+  text-align: center;
+  transition: all .25s ease;
+  border: 1px solid rgba(15,23,42,.03);
+}
+.doctor-section .doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(15,23,42,.14);
+}
+.doctor-section .doctor-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: .85rem;
+}
+.doctor-section .doctor-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: .25rem;
+  color: #0f172a;
+}
+.doctor-section .doctor-card p {
+  font-size: .85rem;
+  color: #475569;
+  margin-bottom: .85rem;
+}
+.doctor-section .doctor-card button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: .5rem 1.3rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.doctor-section .doctor-card button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* responsive portal */
+@media (max-width: 950px) {
+  .portal-features {
+    margin: -30px 1rem 2rem 1rem;
+    padding: 2.2rem 1rem;
+  }
+  .doctor-section {
+    padding: 2.8rem 1rem 3.2rem 1rem;
+  }
+  .doctor-section .doctor-card {
+    width: 92%;
+    max-width: 320px;
+  }
+}
+
+/* =========================================================
+   PORTAL MÉDICO - versión tipo "card flotante" centrada
+   (requiere <body class="portal-medico"> en portal.html)
+   ========================================================= */
+body.portal-medico {
+  background: #eef1f5;
+}
+
+/* hero igual que lo tienes, solo un poquito más alto */
+body.portal-medico .page-hero {
+  padding: 3.8rem 1rem 3.2rem 1rem;
+  margin-bottom: 0; /* para que el card suba */
+}
+
+/* ===== bloque "¿Por qué elegir AliviaTech?" como card flotante ===== */
+body.portal-medico .page-hero + .section {
+  max-width: 1080px;
+  margin: -48px auto 2.3rem auto;   /* lo hace flotar sobre el morado */
+  background: #fff;
+  border-radius: 1.3rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+  padding: 2.4rem 2rem 2.2rem;
+  text-align: center;
+}
+
+/* título centrado */
+body.portal-medico .page-hero + .section .section-title {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+body.portal-medico .page-hero + .section .section-title h2 {
+  font-size: 1.35rem;
+}
+body.portal-medico .page-hero + .section .section-title p {
+  max-width: 520px;
+  margin: .35rem auto 0;
+}
+
+/* las 4 tarjetitas */
+body.portal-medico .page-hero + .section .feature-grid {
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+}
+body.portal-medico .page-hero + .section .feature-card {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.02);
+  border-radius: 1.05rem;
+  padding: 1.15rem .9rem 1.05rem;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+body.portal-medico .page-hero + .section .feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* ===== sección de psicólogos (la que ya tienes debajo) ===== */
+body.portal-medico .page-hero + .section + .section {
+  max-width: 1180px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+
+/* título centrado como en el modelo */
+body.portal-medico .page-hero + .section + .section .section-title {
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+body.portal-medico .page-hero + .section + .section .section-title p {
+  max-width: 520px;
+  margin: .3rem auto 0;
+}
+
+/* grid de doctores más grande y elegante */
+body.portal-medico .doctor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* cards más altas para que no se "achaten" las caras */
+body.portal-medico .doctor-card {
+  background: #fff;
+  width: 250px;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 26px rgba(15,23,42,.05);
+  padding: 1.15rem 1rem 1.2rem;
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+body.portal-medico .doctor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(15,23,42,.08);
+}
+
+/* contenedor de la foto: mantiene proporción y la deja redondita */
+body.portal-medico .doctor-card img {
+  width: 100%;
+  height: 260px;              /* más altura = ya no se corta la cabeza */
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: .6rem;
+}
+
+/* textos */
+body.portal-medico .doctor-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: .2rem;
+}
+body.portal-medico .doctor-card p {
+  font-size: .78rem;
+  line-height: 1.35;
+  color: #475569;
+  min-height: 2.7rem;          /* para que todas queden alineadas */
+  margin-bottom: .75rem;
+}
+
+/* botón igual que el tuyo pero centrado */
+body.portal-medico .doctor-card button,
+body.portal-medico .doctor-card .btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .55rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== responsive ===== */
+@media (max-width: 900px) {
+  body.portal-medico .page-hero + .section {
+    margin: -40px 1rem 2rem 1rem;
+    padding: 2rem 1rem 1.8rem;
+  }
+  body.portal-medico .doctor-card {
+    width: min(320px, 100%);
+  }
+}
+
+
+/* ====== FIX PORTAL MÉDICO ====== */
+
+/* 1. Centrar los botones del hero del portal */
+body.portal-medico .page-hero .hero-actions {
+  display: flex;
+  justify-content: center;   /* centrados */
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;           /* por si en móvil no entran */
+}
+
+/* 2. Centrar y darle ancho al bloque del final */
+body.portal-medico .consultorio-cta {
+  max-width: 1080px;                  /* no ocupa toda la pantalla */
+  margin: 0 auto 2.5rem auto;         /* centrado */
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 2.2rem 1.5rem 2.4rem;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(15,23,42,.05);
+}
+
+/* título y texto centrados de verdad */
+body.portal-medico .consultorio-cta .section-title {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+body.portal-medico .consultorio-cta .section-title p {
+  max-width: 520px;
+  margin: .3rem auto 0;
+}
+
+/* botón de abajo bonito */
+body.portal-medico .consultorio-cta .btn-primary {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .6rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+/* =========================
+   APP PAGE (como nepanikar)
+   ========================= */
+body.app-page {
+  background: #eef1f5;
+}
+
+/* hero de la app */
+.app-hero-band {
+  margin-top: 80px; /* por el header fijo */
+  background: linear-gradient(135deg, #6a5cf7 0%, #8d6ff9 40%, #19bfb1 100%);
+  min-height: 260px;
+  border-radius: 0 0 2rem 2rem;
+  padding: 2.7rem clamp(1rem, 3vw, 3rem);
+  display: grid;
+  grid-template-columns: 1.1fr .7fr;
+  gap: 2rem;
+  align-items: center;
+  color: #fff;
+}
+
+.app-hero-content .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  opacity: .8;
+  margin-bottom: .4rem;
+}
+.app-hero-content h1 {
+  font-size: clamp(2.1rem, 3.3vw, 2.8rem);
+  margin-bottom: .5rem;
+}
+.app-hero-content .lead {
+  max-width: 34rem;
+  opacity: .94;
+}
+.app-hero-content .download-buttons {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.btn-primary.light {
+  background: #fff;
+  color: #0f172a;
+}
+.btn-outline.light {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.7);
+  color: #fff;
+}
+.small-note {
+  font-size: .7rem;
+  opacity: .75;
+  margin-top: .35rem;
+}
+
+.app-hero-device {
+  display: flex;
+  justify-content: flex-end;
+}
+.app-hero-device .device-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.2rem .3rem;
+  width: 230px;
+  box-shadow: 0 12px 40px rgba(3, 7, 18, .15);
+}
+.app-hero-device img {
+  width: 100%;
+  height: auto;
+}
+
+/* cards flotantes debajo del hero */
+.app-feature-cards {
+  max-width: 1100px;
+  margin: -50px auto 2.5rem auto; /* flota sobre el degradado como en tu referencia */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  padding: 0 1rem;
+}
+.app-card {
+  background: #fff;
+  border-radius: 1.1rem;
+  padding: 1.1rem 1rem 1rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.05);
+  border: 1px solid rgba(148,163,184,.08);
+}
+.app-card h3 {
+  margin-bottom: .35rem;
+  color: #0f172a;
+}
+.app-card p {
+  color: #475569;
+  margin-bottom: .4rem;
+}
+.app-card .tag {
+  display: inline-block;
+  background: rgba(22,178,177,.12);
+  color: #0f172a;
+  font-size: .65rem;
+  padding: .2rem .55rem;
+  border-radius: 9999px;
+}
+
+/* fila de iconos (la banda blanca de la web morada) */
+.app-icon-row {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  box-shadow: 0 8px 25px rgba(15,23,42,.04);
+}
+.icon-item {
+  text-align: center;
+}
+.icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  background: rgba(22,178,177,.12);
+  display: grid;
+  place-items: center;
+  margin: 0 auto .4rem auto;
+  font-size: 1.2rem;
+}
+.icon-item h4 {
+  margin-bottom: .2rem;
+}
+.icon-item p {
+  font-size: .75rem;
+  color: #64748b;
+}
+
+/* dos columnas de info */
+.app-two-cols {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+.app-two-cols .col h2 {
+  margin-bottom: .4rem;
+}
+.app-two-cols .col p {
+  color: #475569;
+  margin-bottom: .75rem;
+}
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+.check-list li::before {
+  content: "✔";
+  color: #16B2B1;
+  margin-right: .5rem;
+}
+.info-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 1rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.05);
+  border: 1px solid rgba(148,163,184,.06);
+}
+.info-card .muted {
+  font-size: .75rem;
+  color: #94a3b8;
+  margin-top: .35rem;
+}
+
+/* CTA final centrado */
+.app-cta-final {
+  max-width: 850px;
+  margin: 0 auto 3rem auto;
+  background: #fff;
+  border-radius: 1.3rem;
+  padding: 2rem 1.5rem 2.3rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(15,23,42,.05);
+}
+.app-cta-final p {
+  color: #64748b;
+}
+.app-cta-final .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 1.1rem;
+  flex-wrap: wrap;
+}
+
+/* responsive */
+@media (max-width: 950px) {
+  .app-hero-band {
+    grid-template-columns: 1fr;
+  }
+  .app-hero-device {
+    justify-content: flex-start;
+  }
+  .app-two-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   APP PAGE - AliviaTech
+   ========================================================= */
+body.app-page {
+  background: #eef1f5;
+}
+
+/* hero con degradado */
+.app-hero-band {
+  margin-top: 80px; /* por el header fijo */
+  background: linear-gradient(135deg, #6a5cf7 0%, #8d6ff9 40%, #19bfb1 100%);
+  border-radius: 0 0 2rem 2rem;
+  padding: 2.7rem clamp(1rem, 3vw, 3rem);
+  display: grid;
+  grid-template-columns: 1.1fr .7fr;
+  gap: 2rem;
+  align-items: center;
+  color: #fff;
+}
+
+.app-hero-content .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  opacity: .8;
+  margin-bottom: .4rem;
+}
+
+.app-hero-content h1 {
+  font-size: clamp(2.1rem, 3.3vw, 2.8rem);
+  margin-bottom: .4rem;
+}
+
+.app-hero-content .lead {
+  max-width: 34rem;
+  opacity: .94;
+}
+
+.app-hero-content .download-buttons {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary.light {
+  background: #fff;
+  color: #0f172a;
+}
+
+.btn-outline.light {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.7);
+  color: #fff;
+}
+
+.small-note {
+  font-size: .7rem;
+  opacity: .75;
+  margin-top: .35rem;
+}
+
+.app-hero-device {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app-hero-device .device-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.2rem .3rem;
+  width: 230px;
+  box-shadow: 0 12px 40px rgba(3, 7, 18, .15);
+}
+
+.app-hero-device img {
+  width: 100%;
+  height: auto;
+}
+
+/* cards flotantes debajo del hero */
+.app-feature-cards {
+  max-width: 1100px;
+  margin: -50px auto 2.5rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.app-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+  border-radius: 1.1rem;
+  padding: 1.1rem 1rem 1rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.05);
+  border: 1px solid rgba(148,163,184,.05);
+}
+
+.app-card-solid {
+  background: #ffffff;
+}
+
+.app-card h3 {
+  margin-bottom: .35rem;
+  color: #0f172a;
+}
+
+.app-card p {
+  color: #475569;
+  margin-bottom: .4rem;
+}
+
+.app-card .tag {
+  display: inline-block;
+  background: rgba(22,178,177,.12);
+  color: #0f172a;
+  font-size: .65rem;
+  padding: .2rem .55rem;
+  border-radius: 9999px;
+}
+
+/* fila de iconos */
+.app-icon-row {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  box-shadow: 0 8px 25px rgba(15,23,42,.04);
+}
+
+.icon-item {
+  text-align: center;
+}
+
+.icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 9999px;
+  background: rgba(22,178,177,.12);
+  display: grid;
+  place-items: center;
+  margin: 0 auto .4rem auto;
+  font-size: 1.2rem;
+}
+
+.icon-item h4 {
+  margin-bottom: .2rem;
+}
+
+.icon-item p {
+  font-size: .75rem;
+  color: #64748b;
+}
+
+/* dos columnas */
+.app-two-cols {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.app-two-cols .col h2 {
+  margin-bottom: .4rem;
+}
+
+.app-two-cols .col p {
+  color: #475569;
+  margin-bottom: .75rem;
+}
+
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.check-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: .05rem;
+  color: #16B2B1;
+}
+
+.info-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 1rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.05);
+  border: 1px solid rgba(148,163,184,.06);
+}
+
+.info-card.soft {
+  background: #f8fafc;
+}
+
+.info-card .muted {
+  font-size: .75rem;
+  color: #94a3b8;
+  margin-top: .35rem;
+}
+
+/* preguntas frecuentes */
+.app-faq {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.app-faq h2 {
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.faq-card {
+  background: rgba(255,255,255,.9);
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(148,163,184,.06);
+  box-shadow: 0 10px 25px rgba(15,23,42,.04);
+}
+
+.faq-card h3 {
+  margin-bottom: .3rem;
+}
+
+.faq-card p {
+  font-size: .78rem;
+  color: #475569;
+}
+
+/* CTA final como la referencia */
+.app-cta-final {
+  width: 100%;
+  background: #edf0f6;
+  padding: 2.8rem 1rem 3rem;
+  margin-top: 2.5rem;
+}
+
+.app-cta-final .cta-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app-cta-final h2 {
+  font-size: 1.55rem;
+  margin-bottom: .4rem;
+  color: #0f172a;
+}
+
+.app-cta-final p {
+  color: #64748b;
+  margin-bottom: 1.2rem;
+}
+
+.app-cta-final .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+}
+
+.app-cta-final .btn-primary {
+  background: #16B2B1;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .6rem 1.6rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-cta-final .btn-outline {
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 9999px;
+  padding: .6rem 1.1rem;
+  text-decoration: none;
+}
+
+/* efecto reveal base */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* responsive */
+@media (max-width: 950px) {
+  .app-hero-band {
+    grid-template-columns: 1fr;
+  }
+  .app-hero-device {
+    justify-content: flex-start;
+  }
+  .app-two-cols {
+    grid-template-columns: 1fr;
+  }
+  .app-cta-final .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* =========================================================
+   PULSERA PAGE - AliviaTech
+   ========================================================= */
+body.pulsera-page {
+  background: #eef1f5;
+}
+
+/* HERO de la pulsera */
+.pulsera-hero {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #6a5cf7 0%, #8d6ff9 40%, #19bfb1 100%);
+  border-radius: 0 0 2rem 2rem;
+  padding: 2.8rem clamp(1rem, 3vw, 3rem);
+  display: grid;
+  grid-template-columns: 1.1fr .6fr;
+  gap: 2rem;
+  align-items: center;
+  color: #fff;
+}
+
+.pulsera-hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  opacity: .7;
+  margin-bottom: .4rem;
+}
+
+.pulsera-hero h1 {
+  font-size: clamp(2.1rem, 3.3vw, 2.7rem);
+  margin-bottom: .4rem;
+}
+
+.pulsera-hero .lead {
+  max-width: 34rem;
+  opacity: .9;
+}
+
+.hero-device {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-device .device-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 1.1rem 1.1rem .3rem;
+  width: 210px;
+  box-shadow: 0 12px 40px rgba(3, 7, 18, .15);
+}
+
+.hero-device img {
+  width: 100%;
+}
+
+/* === SECCIÓN ¿QUÉ MIDE? (refinada) === */
+.pulsera-metrics {
+  max-width: 1150px;
+  margin: -80px auto 2.4rem auto; /* se mete más en el degradado */
+  padding: 2rem 1rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.pulsera-metrics h2 {
+  margin-bottom: .3rem;
+  color: #0f172a;
+}
+
+.pulsera-metrics .subtitle {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+/* tarjetas con color de la paleta */
+.metric-card {
+  background: rgba(22, 178, 177, 0.09);  /* celeste muy suave */
+  border-radius: 1.1rem;
+  padding: 1rem .9rem 1rem;
+  box-shadow: 0 8px 25px rgba(15,23,42,.04);
+  border: 1px solid rgba(22,178,177,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.metric-card.soft {
+  background: rgba(22,178,177,0.04);
+  border: 1px solid rgba(22,178,177,0.06);
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(22,178,177,0.15);
+}
+
+.metric-card h3 {
+  margin-bottom: .3rem;
+  color: #0f172a;
+}
+
+.metric-card p {
+  color: #334155;
+  font-size: .88rem;
+  line-height: 1.4;
+}
+
+/* por si quieres que esta también entre con reveal */
+.pulsera-metrics.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.pulsera-metrics.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === ¿CÓMO TE AYUDA LA IA? === */
+.pulsera-ai {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.pulsera-ai .subtitle {
+  color: #64748b;
+  margin-bottom: .8rem;
+}
+
+.ai-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.ai-steps h4 {
+  margin-bottom: .15rem;
+}
+
+.ai-steps p {
+  color: #475569;
+}
+
+.ai-chat .chat-card {
+  background: #0f172a;
+  border-radius: 1.2rem;
+  padding: 1rem 1rem .9rem;
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(15,23,42,.25);
+}
+
+.chat-header {
+  font-weight: 600;
+  margin-bottom: .55rem;
+  opacity: .9;
+}
+
+.chat-msg {
+  background: rgba(255,255,255,.05);
+  border-radius: .9rem;
+  padding: .6rem .7rem;
+  margin-bottom: .5rem;
+  font-size: .78rem;
+}
+
+.chat-msg.user {
+  background: #16B2B1;
+  color: #fff;
+  text-align: right;
+  margin-left: auto;
+  width: fit-content;
+}
+
+.chat-msg.dark {
+  background: rgba(2,6,23,.55);
+}
+
+/* === PREGUNTAS FRECUENTES estilo nepanikar === */
+.pulsera-faq {
+  background: #f5f1fb; /* lavanda claro */
+  padding: 3rem 1rem 3.4rem;
+  margin-bottom: 2.5rem;
+}
+
+.pulsera-faq .faq-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pulsera-faq .faq-title h2 {
+  font-size: 1.7rem;
+  margin-bottom: .4rem;
+}
+
+.pulsera-faq .faq-title p {
+  color: #6a6b83;
+}
+
+.faq-layout {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.faq-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem .9rem 1.1rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.04);
+  border: 1px solid rgba(148,163,184,.05);
+}
+
+.faq-card h3 {
+  margin-bottom: .25rem;
+}
+
+.faq-card p {
+  font-size: .78rem;
+  color: #475569;
+}
+
+.faq-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-device {
+  background: #fff;
+  border-radius: 1.1rem;
+  padding: 1rem 1rem .3rem;
+  box-shadow: 0 10px 35px rgba(15,23,42,.08);
+  width: 210px;
+}
+
+.faq-device img {
+  width: 100%;
+}
+
+/* === CTA final === */
+.pulsera-cta {
+  width: 100%;
+  background: #edf0f6;
+  padding: 2.8rem 1rem 3rem;
+}
+
+.pulsera-cta .cta-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pulsera-cta h2 {
+  font-size: 1.5rem;
+  margin-bottom: .4rem;
+}
+
+.pulsera-cta p {
+  color: #64748b;
+  margin-bottom: 1.1rem;
+}
+
+.pulsera-cta .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.pulsera-cta .btn-primary {
+  background: #16B2B1;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .6rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pulsera-cta .btn-outline {
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 9999px;
+  padding: .6rem 1.1rem;
+  text-decoration: none;
+}
+
+/* === responsive pulsera === */
+@media (max-width: 950px) {
+  .pulsera-hero {
+    grid-template-columns: 1fr;
+  }
+  .pulsera-ai {
+    grid-template-columns: 1fr;
+  }
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+  .faq-center {
+    order: -1;
+  }
+}
+
+/* === SECCIÓN ¿QUÉ MIDE? (centrada y con fondo ajustado) === */
+.pulsera-metrics {
+  max-width: 1100px;
+  margin: 40px auto 3rem auto; /* la baja más del degradado y la centra */
+  padding: 2rem 1.5rem;
+  position: relative;
+  z-index: 2;
+  text-align: center; /* centra título y subtítulo */
+}
+
+.pulsera-metrics h2 {
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.pulsera-metrics .subtitle {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* GRID DE TARJETAS */
+.metric-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+/* Tarjetas refinadas */
+.metric-card {
+  flex: 1 1 230px;
+  max-width: 240px;
+  background: rgba(22, 178, 177, 0.15); /* tono suave AliviaTech */
+  border-radius: 1rem;
+  padding: 1.1rem 1rem;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(22, 178, 177, 0.08);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(22, 178, 177, 0.25);
+  background: rgba(22, 178, 177, 0.22);
+}
+
+.metric-card h3 {
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.metric-card p {
+  color: #334155;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 900px) {
+  .pulsera-metrics {
+    margin: 20px auto 2rem auto;
+    padding: 1.5rem 1rem;
+  }
+  .metric-card {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   SOBRE NOSOTROS - AliviaTech
+   ========================================================= */
+body.nosotros-page {
+  background: #eef1f5;
+}
+
+/* HERO */
+.nosotros-hero {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #6a5cf7 0%, #8d6ff9 40%, #19bfb1 100%);
+  border-radius: 0 0 2rem 2rem;
+  padding: 3rem clamp(1rem, 3vw, 3rem);
+  color: #fff;
+  text-align: center;
+}
+
+.nosotros-hero h1 {
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  margin-bottom: .4rem;
+}
+
+.nosotros-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: .9;
+}
+
+/* CONTENIDO PRINCIPAL */
+.nosotros-contenido {
+  max-width: 1100px;
+  margin: 2rem auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.nosotros-contenido h2 {
+  font-size: 1.5rem;
+  margin-bottom: .6rem;
+  color: #0f172a;
+}
+
+.nosotros-contenido p {
+  color: #475569;
+  margin-bottom: 1.4rem;
+  line-height: 1.6;
+}
+
+/* FOCOS */
+.focos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+.foco-card {
+  background: rgba(22,178,177,0.09);
+  border-radius: 1.1rem;
+  padding: 1rem .9rem;
+  box-shadow: 0 8px 25px rgba(15,23,42,.04);
+  border: 1px solid rgba(22,178,177,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.foco-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(22,178,177,0.15);
+}
+
+/* QUIÉNES ESTÁN DETRÁS */
+.equipo-section {
+  background: #0f172a;
+  color: #fff;
+  padding: 3rem 1rem 3.5rem;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.equipo-section h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.miembro-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.2rem;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform .25s ease;
+}
+
+.miembro-card:hover {
+  transform: translateY(-4px);
+}
+
+.miembro-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid #16B2B1;
+}
+
+.miembro-card h3 {
+  margin-bottom: .2rem;
+  color: #fff;
+}
+
+.miembro-card .rol {
+  font-size: .85rem;
+  color: #9ca3af;
+  margin-bottom: .8rem;
+}
+
+.miembro-card p {
+  font-size: .85rem;
+  color: #cbd5e1;
+  margin-bottom: .9rem;
+}
+
+.miembro-card a {
+  font-size: .8rem;
+  color: #16B2B1;
+  text-decoration: none;
+}
+
+.miembro-card a:hover {
+  text-decoration: underline;
+}
+
+/* CTA FINAL (reajustada) */
+.nosotros-cta {
+  width: 100%;
+  background: #edf0f6;
+  padding: 3rem 1rem 3.2rem;
+}
+
+.nosotros-cta .cta-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1.2rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 10px 25px rgba(15,23,42,.05);
+}
+
+.nosotros-cta h2 {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+  color: #0f172a;
+}
+
+.nosotros-cta p {
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.nosotros-cta .btn-primary {
+  background: #16B2B1;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .6rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.nosotros-cta .btn-primary:hover {
+  background: #0f8e8d;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .equipo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SOBRE NOSOTROS */
+body.nosotros-page {
+  background: #eef1f5;
+}
+
+/* hero degradado */
+.nosotros-hero {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #6a5cf7 0%, #8d6ff9 40%, #19bfb1 100%);
+  border-radius: 0 0 2rem 2rem;
+  padding: 3rem 1rem 2.8rem;
+  text-align: center;
+  color: #fff;
+}
+.nosotros-hero h1 {
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  margin-bottom: .4rem;
+}
+.nosotros-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: .9;
+}
+
+/* contenido */
+.nosotros-contenido {
+  max-width: 1100px;
+  margin: 2.3rem auto 3rem auto;
+  padding: 0 1rem;
+}
+.nosotros-contenido h2 {
+  font-size: 1.45rem;
+  margin-bottom: .4rem;
+  color: #0f172a;
+}
+.nosotros-contenido p {
+  color: #475569;
+  margin-bottom: 1rem;
+}
+.focos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.foco-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem .9rem;
+  border: 1px solid rgba(148,163,184,.08);
+  box-shadow: 0 6px 16px rgba(15,23,42,.03);
+}
+
+/* equipo */
+.equipo-section {
+  background: #0f172a;
+  color: #fff;
+  padding: 3rem 1rem 3.4rem;
+  border-radius: 2rem 2rem 0 0;
+}
+.equipo-section h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.equipo-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+.miembro-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1.2rem;
+  padding: 1.4rem 1.2rem 1.2rem;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+.miembro-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: .8rem;
+  border: 2px solid #16B2B1;
+}
+.miembro-card h3 {
+  margin-bottom: .2rem;
+}
+.miembro-card .rol {
+  font-size: .78rem;
+  opacity: .85;
+  margin-bottom: .6rem;
+}
+.miembro-card p {
+  font-size: .78rem;
+  line-height: 1.35;
+  margin-bottom: .6rem;
+}
+.miembro-card a {
+  font-size: .72rem;
+  color: #16B2B1;
+  text-decoration: none;
+}
+
+/* CTA final centrada */
+.nosotros-cta {
+  width: 100%;
+  background: #edf0f6;
+  padding: 2.7rem 1rem 3rem;
+}
+.nosotros-cta .cta-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1.15rem;
+  text-align: center;
+  padding: 2rem 1.5rem 2.2rem;
+  box-shadow: 0 10px 25px rgba(15,23,42,.05);
+}
+.nosotros-cta h2 {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+}
+.nosotros-cta p {
+  color: #475569;
+  margin-bottom: 1.1rem;
+}
+.nosotros-cta .btn-primary {
+  background: #16B2B1;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .55rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* reveal para tarjetas de equipo (usa el js que ya tenías) */
+.miembro-card.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.miembro-card.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .nosotros-contenido {
+    margin-top: 2rem;
+  }
+  .equipo-section {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+}
+
+
+/* ===========================
+   SOBRE NOSOTROS - AliviaTech
+   =========================== */
+body.nosotros-page {
+  background: #eef1f5;
+}
+
+.nosotros-hero {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #6a5cf7 0%, #8d6ff9 40%, #19bfb1 100%);
+  border-radius: 0 0 2rem 2rem;
+  padding: 3rem 1rem 2.8rem;
+  text-align: center;
+  color: #fff;
+}
+.nosotros-hero h1 {
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  margin-bottom: .4rem;
+}
+.nosotros-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: .9;
+}
+
+/* CONTENIDO */
+.nosotros-contenido {
+  max-width: 1100px;
+  margin: 2.5rem auto 3rem;
+  padding: 0 1rem;
+}
+.nosotros-contenido h2 {
+  font-size: 1.5rem;
+  margin-bottom: .4rem;
+  color: #0f172a;
+}
+.nosotros-contenido p {
+  color: #475569;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.team-placeholder {
+  display: block;
+  margin: 1.5rem auto 2.2rem;
+  max-width: 420px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+}
+
+/* FOCOS */
+.focos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.foco-card {
+  background: rgba(22,178,177,0.08);
+  border-radius: 1.1rem;
+  padding: 1rem .9rem;
+  border: 1px solid rgba(22,178,177,0.1);
+  box-shadow: 0 8px 25px rgba(15,23,42,.04);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.foco-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(22,178,177,0.18);
+}
+
+/* EQUIPO */
+.equipo-section {
+  background: #0f172a;
+  color: #fff;
+  padding: 3rem 1rem 3.4rem;
+  border-radius: 2rem 2rem 0 0;
+}
+.equipo-section h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.equipo-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+.miembro-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1.2rem;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+.miembro-card img {
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: .9rem;
+  border: 2px solid #16B2B1;
+}
+.miembro-card h3 {
+  margin-bottom: .2rem;
+}
+.miembro-card .rol {
+  font-size: .8rem;
+  opacity: .85;
+  margin-bottom: .6rem;
+}
+.miembro-card p {
+  font-size: .8rem;
+  line-height: 1.4;
+  margin-bottom: .6rem;
+}
+.miembro-card a {
+  font-size: .75rem;
+  color: #16B2B1;
+  text-decoration: none;
+}
+.miembro-card a:hover {
+  text-decoration: underline;
+}
+
+/* CTA FINAL */
+.nosotros-cta {
+  width: 100%;
+  background: #edf0f6;
+  padding: 2.7rem 1rem 3rem;
+}
+.nosotros-cta .cta-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1.2rem;
+  text-align: center;
+  padding: 2rem 1.5rem 2.2rem;
+  box-shadow: 0 10px 25px rgba(15,23,42,.05);
+}
+.nosotros-cta h2 {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+  color: #0f172a;
+}
+.nosotros-cta p {
+  color: #475569;
+  margin-bottom: 1.1rem;
+}
+.nosotros-cta .btn-primary {
+  background: #16B2B1;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: .6rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .25s ease;
+}
+.nosotros-cta .btn-primary:hover {
+  background: #0f8e8d;
+}
+
+/* ANIMACIÓN REVEAL */
+.miembro-card.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.miembro-card.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
