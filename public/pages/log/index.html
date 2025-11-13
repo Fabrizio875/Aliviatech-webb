@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AliviaTech – Iniciar sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles/styles.css">
+</head>
+<body class="auth-body">
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="login-header">
+        <img src="../../assets/images/aliviatech.png" alt="AliviaTech" class="nav-logo">
+        <h2>Bienvenido a AliviaTech</h2>
+        <p class="muted">Ingresa según tu rol.</p>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label>
+          Correo
+          <input type="email" id="loginEmail" required placeholder="tucorreo@ejemplo.com">
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="loginPassword" required placeholder="********">
+        </label>
+        <label>
+          Rol
+          <select id="loginRole" required>
+            <option value="paciente">Paciente</option>
+            <option value="psicologo">Psicólogo</option>
+          </select>
+        </label>
+        <button id="loginSubmit" class="btn btn-primary" type="submit">Ingresar</button>
+        <p id="loginStatus" class="form-status"></p>
+      </form>
+      <p class="muted" style="margin-top:1rem;">
+        ¿Volver al inicio? <a href="../../index.html">Ir a la landing</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="../../assets/scripts/main.js"></script>
+</body>
+</html>
