@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AliviaTech – Alertas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/styles/styles.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("aliviatech_role") !== "paciente") {
+        window.location.href = "/pages/log/index.html";
+      }
+    });
+  </script>
+</head>
+<body class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
+    </div>
+    <div class="doctor-card">
+      <img src="https://i.pravatar.cc/80?img=12" alt="Paciente" class="doctor-avatar">
+      <div>
+        <h2>Hola, Stephane</h2>
+        <p>Paciente AliviaTech</p>
+      </div>
+    </div>
+    <nav class="side-nav">
+      <a href="dashboard.html">Mi estado</a>
+      <a href="progreso.html">Progreso</a>
+      <a href="recursos.html">Recursos</a>
+      <a class="active" href="alertas.html">Alertas</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="../../index.html">Volver al inicio</a>
+      <button class="logout-btn">Cerrar sesión</button>
+    </nav>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <h1>Alertas recientes</h1>
+    </header>
+
+    <main class="content">
+      <section class="card">
+        <h2 class="card-title">Últimas alertas</h2>
+        <p>No se detectaron crisis en las últimas 24 horas. 🌿</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../assets/scripts/main.js"></script>
+</body>
+</html>
