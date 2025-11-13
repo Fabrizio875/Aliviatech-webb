@@ -1,6 +1,3 @@
-// main.js
-
-// toggle básico por si usas menú móvil
 const menuBtn = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 
@@ -10,7 +7,6 @@ if (menuBtn && nav) {
   });
 }
 
-// efecto de aparición al hacer scroll
 const revealEls = document.querySelectorAll('.reveal');
 
 const observer = new IntersectionObserver((entries) => {
