@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — AliviaTech</title>
+  <link rel="stylesheet" href="../assets/styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-row">
+      <a class="brand-wrapper" href="../index.html">
+        <img src="../assets/images/aliviatech.png" alt="AliviaTech" class="nav-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Inicio</a>
+        <a href="nosotros.html">Sobre nosotros</a>
+        <a href="pulsera.html">Pulsera</a>
+        <a href="app.html">App</a>
+        <a href="portal.html">Portal médico</a>
+        <a href="contacto.html" class="active">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Hablemos 💬</h1>
+      <p>Déjanos tu correo y cuéntanos si eres paciente, especialista o institución. Te respondemos allí.</p>
+      <form class="contact-form" onsubmit="return false;">
+        <label>
+          <span>Correo</span>
+          <input id="contactEmail" type="email" class="input" placeholder="tucorreo@ejemplo.com" required>
+        </label>
+        <label>
+          <span>Mensaje</span>
+          <textarea id="contactMessage" rows="4" placeholder="Hola, quiero conocer más sobre el plan para clínicas..." required></textarea>
+        </label>
+        <button id="contactSubmit" class="btn btn-primary" type="submit">Enviar</button>
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </main>
+
+  <script src="../assets/scripts/main.js"></script>
+</body>
+</html>
