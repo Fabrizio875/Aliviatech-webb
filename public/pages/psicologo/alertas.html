@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AliviaTech – Alertas críticas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/styles/styles.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("aliviatech_role") !== "psicologo") {
+        window.location.href = "/pages/log/index.html";
+      }
+    });
+  </script>
+</head>
+<body class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
+    </div>
+    <div class="doctor-card">
+      <img src="https://i.pravatar.cc/80?img=3" alt="Doctor" class="doctor-avatar">
+      <div>
+        <h2>Dr. Juan Pérez</h2>
+        <p>Psicología Clínica</p>
+      </div>
+    </div>
+    <nav class="side-nav">
+      <a href="dashboard.html">Lista de pacientes</a>
+      <a href="pacientes.html">Pacientes</a>
+      <a class="active" href="alertas.html">Alertas críticas</a>
+      <a href="stats.html">Estadísticas generales</a>
+      <a href="protocolo.html">Recomendaciones / Protocolos</a>
+      <a href="configuracion.html">Configuración</a>
+      <a href="../../index.html">Volver a landing</a>
+      <button class="logout-btn">Cerrar sesión</button>
+    </nav>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <h1>Alertas críticas</h1>
+    </header>
+
+    <main class="content">
+      <section class="card">
+        <h2 class="card-title">Pacientes con riesgo</h2>
+        <p class="muted">Revisar primero estos casos.</p>
+        <ul>
+          <li><strong>Luis García</strong> – ritmo cardíaco 95ppm · ansiedad alta</li>
+          <li><strong>Carlos Torres</strong> – episodio reciente registrado</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../assets/scripts/main.js"></script>
+</body>
+</html>
