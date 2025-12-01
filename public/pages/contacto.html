@@ -2,47 +2,200 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>AliviaTech – Contacto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto — AliviaTech</title>
-  <link rel="stylesheet" href="../assets/styles/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/assets/styles/styles.css">
 </head>
-<body>
-  <header class="navbar">
-    <div class="container nav-row">
-      <a class="brand-wrapper" href="../index.html">
-        <img src="../assets/images/aliviatech.png" alt="AliviaTech" class="nav-logo">
+<body class="contact-page">
+
+ 
+  <header class="site-header">
+    <div class="navbar">
+      <a href="/index.html" class="brand">
+        <img src="/assets/images/aliviatech.png" alt="AliviaTech">
+        <span>AliviaTech</span>
       </a>
-      <nav class="nav-links">
-        <a href="../index.html">Inicio</a>
-        <a href="nosotros.html">Sobre nosotros</a>
-        <a href="pulsera.html">Pulsera</a>
-        <a href="app.html">App</a>
-        <a href="portal.html">Portal médico</a>
-        <a href="contacto.html" class="active">Contacto</a>
+
+      <nav class="main-nav">
+        <a href="/index.html">Inicio</a>
+        <a href="/pages/nosotros.html">Sobre nosotros</a>
+        <a href="/pages/pulsera.html">Pulsera IA</a>
+        <a href="/pages/app.html">App</a>
+        <a href="/pages/portal.html">Portal médico</a>
       </nav>
+
+      <div class="auth-links">
+        <a href="/pages/log/registro.html" class="auth-link">Registrarme</a>
+        <a href="/pages/log/index.html" class="auth-link auth-link--filled">Iniciar sesión</a>
+      </div>
+
+      <button class="menu-toggle" type="button">Menú</button>
     </div>
   </header>
 
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Hablemos 💬</h1>
-      <p>Déjanos tu correo y cuéntanos si eres paciente, especialista o institución. Te respondemos allí.</p>
-      <form class="contact-form" onsubmit="return false;">
-        <label>
-          <span>Correo</span>
-          <input id="contactEmail" type="email" class="input" placeholder="tucorreo@ejemplo.com" required>
-        </label>
-        <label>
-          <span>Mensaje</span>
-          <textarea id="contactMessage" rows="4" placeholder="Hola, quiero conocer más sobre el plan para clínicas..." required></textarea>
-        </label>
-        <button id="contactSubmit" class="btn btn-primary" type="submit">Enviar</button>
-        <p id="formStatus" class="form-status" aria-live="polite"></p>
-      </form>
-    </div>
+  <main>
+   
+    <section class="contact-hero">
+      <div class="contact-hero-text">
+        <p class="eyebrow">Hablemos</p>
+        <h1>¿Con quién quieres hablar de AliviaTech?</h1>
+        <p>
+          Déjanos tus datos y elige si deseas contactar a un especialista,
+          al equipo comercial o recibir más información sobre los planes para clínicas.
+        </p>
+      </div>
+    </section>
+
+    
+    <section class="section contact-section">
+      <div class="contact-wrapper">
+        
+        <div class="contact-info">
+          <div class="contact-logo-card">
+            <img src="/assets/images/aliviatech.png" alt="AliviaTech">
+          </div>
+          <h2>Elige a quién escribir</h2>
+          <p>
+            Podemos ayudarte si eres <strong>paciente</strong>, <strong>especialista</strong>
+            o <strong>institución</strong>. Cuéntanos brevemente tu caso y te respondemos por correo.
+          </p>
+
+          <ul class="contact-list">
+            <li>🧑‍⚕️ Coordinar con un psicólogo específico.</li>
+            <li>🏥 Solicitar información sobre planes para clínicas.</li>
+            <li>📱 Consultar detalles de la app o la pulsera.</li>
+          </ul>
+        </div>
+
+        
+        <div class="card contact-form-card">
+          <h2>Formulario de contacto</h2>
+          <p class="muted">
+            Completa los campos y selecciona el especialista o área con la que deseas hablar.
+          </p>
+
+          <form class="contact-form">
+            <div class="field-grid">
+              <div class="field">
+                <label for="contact-nombre">Nombre</label>
+                <input
+                  type="text"
+                  id="contact-nombre"
+                  name="nombre"
+                  placeholder="Tu nombre completo"
+                  required
+                >
+              </div>
+              <div class="field">
+                <label for="contact-email">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="tucorreo@ejemplo.com"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="contact-rol">Soy</label>
+                <select id="contact-rol" name="rol" required>
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="paciente">Paciente</option>
+                  <option value="especialista">Psicólogo / especialista</option>
+                  <option value="clinica">Clínica / consultorio</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="contact-doctor">Quiero contactar a</label>
+                <select id="contact-doctor" name="doctor" required>
+                  <option value="" disabled selected>Selecciona un destinatario</option>
+                  <option value="juan">Dr. Juan Pérez – Ansiedad y estrés</option>
+                  <option value="eylon">Dr. Eylon Armijo – TCC · Jóvenes y adultos</option>
+                  <option value="fabrizio">Lic. Fabrizio Tasayco – Mindfulness</option>
+                  <option value="stephane">Dra. Stephane Arteaga – Neuropsicología</option>
+                  <option value="comercial">Equipo comercial / planes para clínicas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="contact-motivo">Motivo principal</label>
+              <select id="contact-motivo" name="motivo" required>
+                <option value="" disabled selected>Selecciona un motivo</option>
+                <option value="planes-pacientes">Quiero usar AliviaTech como paciente</option>
+                <option value="planes-especialista">Soy especialista y quiero usar el portal</option>
+                <option value="planes-clinica">Me interesa el plan para clínicas / instituciones</option>
+                <option value="duda-tecnica">Duda técnica sobre la app o la pulsera</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="contact-mensaje">Mensaje / descripción</label>
+              <textarea
+                id="contact-mensaje"
+                name="mensaje"
+                rows="4"
+                placeholder="Hola, quiero conocer más sobre el plan para clínicas y cómo integrar la pulsera con nuestros pacientes..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary contact-submit">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="../assets/scripts/main.js"></script>
+  
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="/assets/images/aliviatech.png" alt="AliviaTech">
+          <span>AliviaTech</span>
+        </div>
+        <p>
+          Tecnología creada para acompañarte en los momentos difíciles y ayudarte
+          a reconectar con tu bienestar emocional.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Secciones</h4>
+        <a href="/index.html">Inicio</a>
+        <a href="/pages/nosotros.html">Sobre nosotros</a>
+        <a href="/pages/pulsera.html">Pulsera IA</a>
+        <a href="/pages/app.html">App</a>
+        <a href="/pages/portal.html">Portal médico</a>
+      </div>
+
+      <div>
+        <h4>Contáctanos</h4>
+        <p>contacto@aliviatech.pe</p>
+        <p>+51 987 654 321</p>
+        <div class="social">
+          <a href="#">IG</a>
+          <a href="#">FB</a>
+          <a href="#">YT</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-copy">
+      © 2025 AliviaTech. Todos los derechos reservados.
+    </p>
+  </footer>
+
+  <script src="/assets/scripts/main.js"></script>
 </body>
 </html>
