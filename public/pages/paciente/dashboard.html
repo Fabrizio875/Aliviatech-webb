@@ -5,12 +5,10 @@
   <title>AliviaTech – Panel del paciente</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+  
   <link rel="stylesheet" href="../../assets/styles/styles.css">
 
   <style>
-    
-
     body.paciente-dashboard {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
@@ -22,7 +20,6 @@
       min-height: 100vh;
     }
 
-  
     .dashboard-sidebar {
       width: 260px;
       background: linear-gradient(180deg, #2563eb, #16B2B1);
@@ -113,8 +110,6 @@
       background: rgba(15, 23, 42, 0.18);
     }
 
-    
-
     .dashboard-main {
       flex: 1;
       display: flex;
@@ -160,8 +155,6 @@
       flex-direction: column;
       gap: 1.5rem;
     }
-
-    
 
     .card {
       background: #ffffff;
@@ -316,7 +309,6 @@
   </style>
 
   <script>
-    
     document.addEventListener("DOMContentLoaded", () => {
       const role = localStorage.getItem("aliviatech_role");
       if (role !== "paciente") {
@@ -336,7 +328,6 @@
 
 <body class="paciente-dashboard">
   <div class="dashboard-shell">
-    
     <aside class="dashboard-sidebar">
       <div class="sidebar-logo">
         <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
@@ -354,6 +345,7 @@
         <p class="menu-title">Mi panel</p>
         <nav class="dashboard-nav">
           <a href="dashboard.html" class="active">Inicio</a>
+          <a href="progreso.html">Progreso</a>
           <a href="rutinas.html">Rutinas y ejercicios</a>
           <a href="historial.html">Historial de episodios</a>
           <a href="configuracion.html">Configuración</a>
@@ -363,7 +355,6 @@
       </div>
     </aside>
 
-   
     <div class="dashboard-main">
       <header class="dashboard-topbar">
         <p class="topbar-hello">
@@ -377,7 +368,6 @@
       </header>
 
       <main class="dashboard-content">
-       
         <section class="card">
           <div class="card-header-flex">
             <div>
@@ -415,7 +405,6 @@
           </div>
         </section>
 
-        
         <section class="card">
           <div class="card-header-flex">
             <div>
@@ -424,7 +413,9 @@
                 Actividades breves pensadas para bajar tu nivel de ansiedad.
               </p>
             </div>
-            <button class="btn-primary">Ver todas las rutinas</button>
+            <button class="btn-primary" onclick="window.location.href='rutinas.html'">
+              Ver todas las rutinas
+            </button>
           </div>
 
           <ul class="routine-list">
@@ -459,10 +450,6 @@
       </main>
     </div>
   </div>
-
-  <script src="../../assets/scripts/main.js"></script>
-</body>
-</html>
 
   <script src="../../assets/scripts/main.js"></script>
 </body>
