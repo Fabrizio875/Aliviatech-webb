@@ -2,68 +2,294 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>AliviaTech – Estadísticas</title>
+  <title>AliviaTech – Estadísticas generales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="../../assets/styles/styles.css">
+
+  <style>
+    body.medico-dashboard {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
+      background: #f5f7fb;
+    }
+
+    .dashboard-shell { display: flex; min-height: 100vh; }
+
+    .dashboard-sidebar {
+      width: 260px;
+      background: linear-gradient(180deg, #2563eb, #16B2B1);
+      color: #fff;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .dashboard-sidebar .sidebar-logo img { width: 130px; height: auto; }
+
+    .sidebar-doctor {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.9rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-doctor img {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .sidebar-doctor h2 { margin: 0 0 0.1rem; font-size: 0.95rem; }
+    .sidebar-doctor p { margin: 0; font-size: 0.8rem; opacity: 0.9; }
+
+    .menu-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+      margin-bottom: 0.4rem;
+    }
+
+    .dashboard-nav { display: flex; flex-direction: column; gap: 0.25rem; }
+
+    .dashboard-nav a,
+    .dashboard-nav button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: #e5f3ff;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .dashboard-nav a:hover,
+    .dashboard-nav button:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateX(2px);
+    }
+
+    .dashboard-nav a.active {
+      background: rgba(255, 255, 255, 0.26);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .dashboard-nav .logout-btn {
+      margin-top: 0.8rem;
+      background: rgba(15, 23, 42, 0.18);
+    }
+
+    .dashboard-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 1.5rem;
+    }
+
+    .dashboard-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #e2e8f0;
+      max-width: 260px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 0.9rem;
+    }
+
+    .user-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .avatar-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: none;
+      background: #16B2B1;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dashboard-content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .card-title { margin: 0 0 0.4rem; font-size: 1.3rem; }
+    .card-subtitle { margin: 0 0 0.8rem; font-size: 0.9rem; color: #64748b; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .kpi-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .kpi-card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.3rem;
+    }
+
+    .kpi-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 960px) {
+      .dashboard-shell { flex-direction: column; }
+      .dashboard-sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      .dashboard-main { padding: 1rem; }
+      .kpi-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("aliviatech_role") !== "psicologo") {
+      const role = localStorage.getItem("aliviatech_role");
+      if (role !== "psicologo") {
         window.location.href = "/pages/log/index.html";
+      }
+
+      const logoutBtn = document.querySelector(".logout-btn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          localStorage.removeItem("aliviatech_role");
+          window.location.href = "/pages/log/index.html";
+        });
       }
     });
   </script>
 </head>
-<body class="layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
-    </div>
-    <div class="doctor-card">
-      <img src="https://i.pravatar.cc/80?img=3" alt="Doctor" class="doctor-avatar">
-      <div>
-        <h2>Dr. Juan Pérez</h2>
-        <p>Psicología Clínica</p>
+<body class="medico-dashboard">
+  <div class="dashboard-shell">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
       </div>
+
+      <div class="sidebar-doctor">
+        <img src="https://i.pravatar.cc/80?img=3" alt="Doctor">
+        <div>
+          <h2>Dr. Juan Pérez</h2>
+          <p>Medicina / Psicología Clínica</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="menu-title">Panel</p>
+        <nav class="dashboard-nav">
+          <a href="dashboard.html">Panel principal</a>
+          <a href="pacientes.html">Lista de pacientes</a>
+          <a href="alertas.html">Alertas críticas</a>
+          <a href="stats.html" class="active">Estadísticas generales</a>
+          <a href="protocolo.html">Recomendaciones / Protocolos</a>
+          <a href="configuracion.html">Configuración</a>
+          <a href="../../index.html">Volver a landing</a>
+          <button class="logout-btn">Cerrar sesión</button>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" placeholder="Buscar paciente...">
+        </div>
+
+        <div class="user-top">
+          <span>Dr. Juan Pérez</span>
+          <button class="avatar-btn">JP</button>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="card">
+          <h1 class="card-title">Estadísticas generales</h1>
+          <p class="card-subtitle">
+            Resumen del estado actual de tus pacientes dentro del ecosistema AliviaTech.
+          </p>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <h3>5</h3>
+              <p>Pacientes activos</p>
+            </div>
+            <div class="kpi-card">
+              <h3>3</h3>
+              <p>Con ansiedad leve</p>
+            </div>
+            <div class="kpi-card">
+              <h3>1</h3>
+              <p>Con ansiedad alta</p>
+            </div>
+          </div>
+
+          <p>
+            La mayoría de pacientes se encuentran dentro de rangos manejables, gracias a la
+            detección temprana de la pulsera y a los ejercicios guiados desde la app.
+          </p>
+          <p>
+            Puedes usar estos datos para ajustar la carga de sesiones, priorizar alertas y
+            diseñar protocolos personalizados para casos de riesgo.
+          </p>
+        </section>
+      </main>
     </div>
-    <nav class="side-nav">
-      <a href="dashboard.html">Lista de pacientes</a>
-      <a href="pacientes.html">Pacientes</a>
-      <a href="alertas.html">Alertas críticas</a>
-      <a class="active" href="stats.html">Estadísticas generales</a>
-      <a href="protocolo.html">Recomendaciones / Protocolos</a>
-      <a href="configuracion.html">Configuración</a>
-      <a href="../../index.html">Volver a landing</a>
-      <button class="logout-btn">Cerrar sesión</button>
-    </nav>
-  </aside>
-
-  <div class="main-area">
-    <header class="topbar">
-      <h1>Estadísticas generales</h1>
-    </header>
-
-    <main class="content">
-      <section class="kpi-row">
-        <div class="kpi-card">
-          <h3>5</h3>
-          <p>Pacientes activos</p>
-        </div>
-        <div class="kpi-card">
-          <h3>3</h3>
-          <p>Con ansiedad leve</p>
-        </div>
-        <div class="kpi-card">
-          <h3>1</h3>
-          <p>Con ansiedad alta</p>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2 class="card-title">Resumen</h2>
-        <p>La mayoría de pacientes se mantienen dentro de los rangos normales gracias a la detección temprana.</p>
-      </section>
-    </main>
   </div>
 
   <script src="../../assets/scripts/main.js"></script>
