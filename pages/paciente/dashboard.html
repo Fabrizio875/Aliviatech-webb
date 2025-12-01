@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AliviaTech – Panel del paciente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS global del proyecto -->
+  <link rel="stylesheet" href="../../assets/styles/styles.css">
+
+  <style>
+    body.paciente-dashboard {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
+      background: #f5f7fb;
+    }
+
+    .dashboard-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .dashboard-sidebar {
+      width: 260px;
+      background: linear-gradient(180deg, #2563eb, #16B2B1);
+      color: #fff;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .dashboard-sidebar .sidebar-logo img {
+      width: 130px;
+      height: auto;
+    }
+
+    .sidebar-user {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.9rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-user img {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .sidebar-user h2 {
+      margin: 0 0 0.1rem;
+      font-size: 0.95rem;
+    }
+
+    .sidebar-user p {
+      margin: 0;
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .menu-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+      margin-bottom: 0.4rem;
+    }
+
+    .dashboard-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .dashboard-nav a,
+    .dashboard-nav button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: #e5f3ff;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .dashboard-nav a:hover,
+    .dashboard-nav button:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateX(2px);
+    }
+
+    .dashboard-nav a.active {
+      background: rgba(255, 255, 255, 0.26);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .dashboard-nav .logout-btn {
+      margin-top: 0.8rem;
+      background: rgba(15, 23, 42, 0.18);
+    }
+
+    .dashboard-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 1.5rem;
+    }
+
+    .dashboard-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .topbar-hello {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .user-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .avatar-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: none;
+      background: #16B2B1;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dashboard-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .card-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .card-subtitle {
+      margin: 0.15rem 0 0;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .metric-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .metric-helper {
+      font-size: 0.8rem;
+      color: #22c55e;
+    }
+
+    .btn-primary {
+      background: #16B2B1;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover {
+      background: #0f8e8d;
+      transform: translateY(-1px);
+    }
+
+    .routine-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .routine-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.75rem 0.8rem;
+      border-radius: 14px;
+      background: #f8fafc;
+    }
+
+    .routine-title {
+      font-weight: 600;
+    }
+
+    .routine-meta {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.2rem;
+    }
+
+    .routine-pill {
+      align-self: center;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .alert-banner {
+      margin-top: 0.5rem;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      background: #fef2f2;
+      border-left: 4px solid #f97373;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1100px) {
+      .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 960px) {
+      .dashboard-shell {
+        flex-direction: column;
+      }
+      .dashboard-sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      .dashboard-main {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const role = localStorage.getItem("aliviatech_role");
+      if (role !== "paciente") {
+        window.location.href = "../pages/log/index.html";
+      }
+
+      const logoutBtn = document.querySelector(".logout-btn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          localStorage.removeItem("aliviatech_role");
+          window.location.href = "../pages/log/index.html";
+        });
+      }
+    });
+  </script>
+</head>
+
+<body class="paciente-dashboard">
+  <div class="dashboard-shell">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
+      </div>
+
+      <div class="sidebar-user">
+        <img src="https://i.pravatar.cc/80?img=5" alt="Paciente">
+        <div>
+          <h2>Stephane Arteaga</h2>
+          <p>Paciente AliviaTech</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="menu-title">Mi panel</p>
+        <nav class="dashboard-nav">
+          <a href="dashboard.html" class="active">Inicio</a>
+          <a href="progreso.html">Progreso</a>
+          <a href="rutinas.html">Rutinas y ejercicios</a>
+          <a href="historial.html">Historial de episodios</a>
+          <a href="configuracion.html">Configuración</a>
+          <a href="../../index.html">Volver a landing</a>
+          <button class="logout-btn">Cerrar sesión</button>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <p class="topbar-hello">
+          👋 Hola Stephane, este es el resumen de tu bienestar hoy.
+        </p>
+
+        <div class="user-top">
+          <span>Stephane</span>
+          <button class="avatar-btn">SA</button>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="card">
+          <div class="card-header-flex">
+            <div>
+              <h1 class="card-title">Mi estado general</h1>
+              <p class="card-subtitle">
+                Datos combinados de tu pulsera y de la app móvil.
+              </p>
+            </div>
+            <button class="btn-primary">Ver recomendaciones</button>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">Días tranquilos</div>
+              <div class="metric-value">12</div>
+              <div class="metric-helper">En los últimos 14 días</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Alertas recientes</div>
+              <div class="metric-value">2</div>
+              <div class="metric-helper" style="color:#f97316;">
+                Revisa tus ejercicios de respiración
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Ritmo cardíaco promedio</div>
+              <div class="metric-value">76</div>
+              <div class="metric-helper">ppm durante el día</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Sesiones con tu especialista</div>
+              <div class="metric-value">4</div>
+              <div class="metric-helper">Último mes</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header-flex">
+            <div>
+              <h2 class="card-title" style="font-size:1.1rem;">Rutinas sugeridas para hoy</h2>
+              <p class="card-subtitle">
+                Actividades breves pensadas para bajar tu nivel de ansiedad.
+              </p>
+            </div>
+            <button class="btn-primary" onclick="window.location.href='rutinas.html'">
+              Ver todas las rutinas
+            </button>
+          </div>
+
+          <ul class="routine-list">
+            <li class="routine-item">
+              <div>
+                <p class="routine-title">Respiración 4-7-8</p>
+                <p class="routine-meta">Duración: 5 minutos · Ideal para antes de dormir.</p>
+              </div>
+              <span class="routine-pill">Empezar</span>
+            </li>
+            <li class="routine-item">
+              <div>
+                <p class="routine-title">Escaneo corporal guiado</p>
+                <p class="routine-meta">Duración: 8 minutos · Recomendado por tu especialista.</p>
+              </div>
+              <span class="routine-pill">Empezar</span>
+            </li>
+            <li class="routine-item">
+              <div>
+                <p class="routine-title">Caminar consciente</p>
+                <p class="routine-meta">Duración: 10 minutos · Hazlo cuando sientas tensión.</p>
+              </div>
+              <span class="routine-pill">Empezar</span>
+            </li>
+          </ul>
+
+          <div class="alert-banner">
+            💡 Recuerda: la pulsera registrará tus signos vitales mientras haces las rutinas
+            para que tu especialista pueda ver tu progreso.
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../assets/scripts/main.js"></script>
+</body>
+</html>
