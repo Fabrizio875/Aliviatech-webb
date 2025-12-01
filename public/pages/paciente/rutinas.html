@@ -7,17 +7,13 @@
 
   <link rel="stylesheet" href="../../assets/styles/styles.css">
   <style>
-    /* Reutiliza mismo layout que dashboard paciente */
-
-    body.paciente-dashboard {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
-      background: #f5f7fb;
+    body.paciente-dashboard{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Poppins",sans-serif;
+      background:#f5f7fb;
     }
-
-    .dashboard-shell { display:flex; min-height:100vh; }
-
-    .dashboard-sidebar {
+    .dashboard-shell{display:flex;min-height:100vh;}
+    .dashboard-sidebar{
       width:260px;
       background:linear-gradient(180deg,#2563eb,#16B2B1);
       color:#fff;
@@ -26,59 +22,74 @@
       flex-direction:column;
       gap:1.5rem;
     }
-
     .dashboard-sidebar .sidebar-logo img{width:130px;height:auto;}
-
     .sidebar-user{
       display:flex;
-      gap:0.75rem;
+      gap:.75rem;
       align-items:center;
-      padding:0.9rem;
+      padding:.9rem;
       border-radius:14px;
-      background:rgba(255,255,255,0.08);
+      background:rgba(255,255,255,.08);
     }
-
     .sidebar-user img{
       width:52px;height:52px;border-radius:999px;
-      object-fit:cover;border:2px solid rgba(255,255,255,0.6);
+      object-fit:cover;border:2px solid rgba(255,255,255,.6);
     }
-
     .sidebar-user h2{margin:0 0 .1rem;font-size:.95rem;}
     .sidebar-user p{margin:0;font-size:.8rem;opacity:.9;}
-
     .menu-title{
-      font-size:.8rem;text-transform:uppercase;
-      letter-spacing:.08em;opacity:.8;margin-bottom:.4rem;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      opacity:.8;
+      margin-bottom:.4rem;
     }
-
     .dashboard-nav{display:flex;flex-direction:column;gap:.25rem;}
     .dashboard-nav a,
     .dashboard-nav button{
-      display:block;width:100%;text-align:left;
-      padding:.55rem .9rem;border-radius:999px;
-      border:none;background:transparent;color:#e5f3ff;
-      font-size:.9rem;text-decoration:none;cursor:pointer;
+      display:block;
+      width:100%;
+      text-align:left;
+      padding:.55rem .9rem;
+      border-radius:999px;
+      border:none;
+      background:transparent;
+      color:#e5f3ff;
+      font-size:.9rem;
+      text-decoration:none;
+      cursor:pointer;
       transition:background .2s,transform .1s;
     }
     .dashboard-nav a:hover,
     .dashboard-nav button:hover{background:rgba(255,255,255,.18);transform:translateX(2px);}
-    .dashboard-nav a.active{background:rgba(255,255,255,.26);color:#fff;font-weight:600;}
+    .dashboard-nav a.active{
+      background:rgba(255,255,255,.26);
+      color:#fff;
+      font-weight:600;
+    }
     .dashboard-nav .logout-btn{margin-top:.8rem;background:rgba(15,23,42,.18);}
 
     .dashboard-main{
-      flex:1;display:flex;flex-direction:column;
-      padding:1.5rem 2rem;gap:1.5rem;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      padding:1.5rem 2rem;
+      gap:1.5rem;
     }
-
     .dashboard-topbar{
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:1.5rem;
     }
     .topbar-hello{font-size:.95rem;color:#475569;}
-
     .user-top{
-      display:flex;align-items:center;gap:.75rem;
-      font-size:.9rem;font-weight:600;color:#0f172a;
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      font-size:.9rem;
+      font-weight:600;
+      color:#0f172a;
     }
     .avatar-btn{
       width:36px;height:36px;border-radius:999px;
@@ -168,6 +179,7 @@
         <p class="menu-title">Mi panel</p>
         <nav class="dashboard-nav">
           <a href="dashboard.html">Inicio</a>
+          <a href="progreso.html">Progreso</a>
           <a href="rutinas.html" class="active">Rutinas y ejercicios</a>
           <a href="historial.html">Historial de episodios</a>
           <a href="configuracion.html">Configuración</a>
