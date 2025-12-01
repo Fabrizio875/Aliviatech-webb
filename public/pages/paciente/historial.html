@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AliviaTech – Historial de episodios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../assets/styles/styles.css">
+  <style>
+    body.paciente-dashboard{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Poppins",sans-serif;
+      background:#f5f7fb;
+    }
+    .dashboard-shell{display:flex;min-height:100vh;}
+    .dashboard-sidebar{
+      width:260px;background:linear-gradient(180deg,#2563eb,#16B2B1);
+      color:#fff;padding:1.5rem 1.25rem;display:flex;flex-direction:column;gap:1.5rem;
+    }
+    .dashboard-sidebar .sidebar-logo img{width:130px;height:auto;}
+    .sidebar-user{
+      display:flex;gap:.75rem;align-items:center;padding:.9rem;
+      border-radius:14px;background:rgba(255,255,255,.08);
+    }
+    .sidebar-user img{
+      width:52px;height:52px;border-radius:999px;
+      object-fit:cover;border:2px solid rgba(255,255,255,.6);
+    }
+    .sidebar-user h2{margin:0 0 .1rem;font-size:.95rem;}
+    .sidebar-user p{margin:0;font-size:.8rem;opacity:.9;}
+    .menu-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;opacity:.8;margin-bottom:.4rem;}
+    .dashboard-nav{display:flex;flex-direction:column;gap:.25rem;}
+    .dashboard-nav a,
+    .dashboard-nav button{
+      display:block;width:100%;text-align:left;padding:.55rem .9rem;
+      border-radius:999px;border:none;background:transparent;color:#e5f3ff;
+      font-size:.9rem;text-decoration:none;cursor:pointer;transition:background .2s,transform .1s;
+    }
+    .dashboard-nav a:hover,
+    .dashboard-nav button:hover{background:rgba(255,255,255,.18);transform:translateX(2px);}
+    .dashboard-nav a.active{background:rgba(255,255,255,.26);color:#fff;font-weight:600;}
+    .dashboard-nav .logout-btn{margin-top:.8rem;background:rgba(15,23,42,.18);}
+
+    .dashboard-main{flex:1;display:flex;flex-direction:column;padding:1.5rem 2rem;gap:1.5rem;}
+    .dashboard-topbar{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+    .topbar-hello{font-size:.95rem;color:#475569;}
+    .user-top{display:flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:600;color:#0f172a;}
+    .avatar-btn{width:36px;height:36px;border-radius:999px;border:none;background:#16B2B1;color:#fff;font-weight:700;cursor:pointer;}
+
+    .dashboard-content{display:flex;flex-direction:column;gap:1.5rem;}
+
+    .card{
+      background:#fff;border-radius:18px;padding:1.4rem 1.6rem;
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+    }
+    .card-title{margin:0 0 .4rem;font-size:1.3rem;}
+    .card-subtitle{margin:0 0 .8rem;font-size:.9rem;color:#64748b;}
+
+    .table-wrapper{overflow-x:auto;}
+    table{
+      width:100%;border-collapse:collapse;font-size:.9rem;
+    }
+    thead{background:#f8fafc;}
+    th,td{
+      padding:.7rem .7rem;text-align:left;border-bottom:1px solid #e2e8f0;white-space:nowrap;
+    }
+    th{
+      font-size:.8rem;text-transform:uppercase;
+      letter-spacing:.04em;color:#64748b;
+    }
+
+    .badge{
+      display:inline-block;padding:.15rem .5rem;border-radius:999px;
+      font-size:.75rem;font-weight:600;
+    }
+    .badge-light{background:#e0f2fe;color:#0369a1;}
+    .badge-alerta{background:#fee2e2;color:#b91c1c;}
+
+    @media(max-width:960px){
+      .dashboard-shell{flex-direction:column;}
+      .dashboard-sidebar{width:100%;flex-direction:row;overflow-x:auto;}
+      .dashboard-main{padding:1rem;}
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const role = localStorage.getItem("aliviatech_role");
+      if (role !== "paciente") {
+        window.location.href = "/pages/log/index.html";
+      }
+
+      const logoutBtn = document.querySelector(".logout-btn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          localStorage.removeItem("aliviatech_role");
+          window.location.href = "/pages/log/index.html";
+        });
+      }
+    });
+  </script>
+</head>
+<body class="paciente-dashboard">
+  <div class="dashboard-shell">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <img src="../../assets/images/aliviatech.png" alt="AliviaTech logo">
+      </div>
+
+      <div class="sidebar-user">
+        <img src="https://i.pravatar.cc/80?img=5" alt="Paciente">
+        <div>
+          <h2>Stephane Arteaga</h2>
+          <p>Paciente AliviaTech</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="menu-title">Mi panel</p>
+        <nav class="dashboard-nav">
+          <a href="dashboard.html">Inicio</a>
+          <a href="rutinas.html">Rutinas y ejercicios</a>
+          <a href="historial.html" class="active">Historial de episodios</a>
+          <a href="configuracion.html">Configuración</a>
+          <a href="../../index.html">Volver a landing</a>
+          <button class="logout-btn">Cerrar sesión</button>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <p class="topbar-hello">
+          Revisa cómo han ido tus episodios en las últimas semanas.
+        </p>
+        <div class="user-top">
+          <span>Stephane</span>
+          <button class="avatar-btn">SA</button>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="card">
+          <h1 class="card-title">Historial de episodios</h1>
+          <p class="card-subtitle">
+            La pulsera y la app registran estos eventos para que tú y tu especialista
+            puedan ver patrones.
+          </p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Tipo</th>
+                  <th>Intensidad</th>
+                  <th>Ritmo cardíaco</th>
+                  <th>Notas rápidas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2025-11-09</td>
+                  <td>21:15</td>
+                  <td><span class="badge badge-alerta">Alerta alta</span></td>
+                  <td>8 / 10</td>
+                  <td>95 ppm</td>
+                  <td>Se registró antes de dormir, se usó rutina 4-7-8.</td>
+                </tr>
+                <tr>
+                  <td>2025-11-05</td>
+                  <td>16:40</td>
+                  <td><span class="badge badge-light">Episodio moderado</span></td>
+                  <td>6 / 10</td>
+                  <td>88 ppm</td>
+                  <td>Después de una discusión, se realizó grounding 5-4-3-2-1.</td>
+                </tr>
+                <tr>
+                  <td>2025-10-30</td>
+                  <td>10:05</td>
+                  <td><span class="badge badge-light">Episodio leve</span></td>
+                  <td>4 / 10</td>
+                  <td>82 ppm</td>
+                  <td>Se resolvió con respiración diafragmática.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../assets/scripts/main.js"></script>
+</body>
+</html>
