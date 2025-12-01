@@ -4,44 +4,140 @@
   <meta charset="UTF-8">
   <title>AliviaTech – Iniciar sesión</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="../../assets/styles/styles.css">
-</head>
-<body class="auth-body">
-  <main class="auth-wrapper">
-    <div class="auth-card">
-      <div class="login-header">
-        <img src="../../assets/images/aliviatech.png" alt="AliviaTech" class="nav-logo">
-        <h2>Bienvenido a AliviaTech</h2>
-        <p class="muted">Ingresa según tu rol.</p>
-      </div>
-      <form id="loginForm" class="auth-form">
-        <label>
-          Correo
-          <input type="email" id="loginEmail" required placeholder="tucorreo@ejemplo.com">
-        </label>
-        <label>
-          Contraseña
-          <input type="password" id="loginPassword" required placeholder="********">
-        </label>
-        <label>
-          Rol
-          <select id="loginRole" required>
-            <option value="paciente">Paciente</option>
-            <option value="psicologo">Psicólogo</option>
-          </select>
-        </label>
-        <button id="loginSubmit" class="btn btn-primary" type="submit">Ingresar</button>
-        <p id="loginStatus" class="form-status"></p>
-      </form>
-      <p class="muted" style="margin-top:1rem;">
-        ¿Volver al inicio? <a href="../../index.html">Ir a la landing</a>
-      </p>
-    </div>
-  </main>
 
-  <script src="../../assets/scripts/main.js"></script>
+  <style>
+ 
+    body {
+      background: linear-gradient(135deg, #5B8CFF, #A066FF, #16B2B1);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .login-card {
+      background: white;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.8rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-card img {
+      width: 70px;
+      margin-bottom: 1rem;
+    }
+
+    .login-card h2 {
+      margin: 0 0 1rem;
+      font-size: 1.9rem;
+    }
+
+    .login-card p {
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .field {
+      margin-bottom: 1.3rem;
+      text-align: left;
+    }
+
+    .field label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: #16B2B1;
+      color: #fff;
+      width: 100%;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #0f8e8d;
+    }
+
+    .bottom-link {
+      margin-top: 1.5rem;
+      display: block;
+      color: #0f8e8d;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <img src="/assets/images/aliviatech.png" alt="Logo AliviaTech">
+    
+    <h2>Iniciar sesión</h2>
+    <p>Ingresa tus datos para acceder al panel correspondiente.</p>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="login-rol">Rol</label>
+        <select id="login-rol" required>
+          <option value="paciente">Paciente</option>
+          <option value="psicologo">Médico</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="login-email">Correo electrónico</label>
+        <input type="email" id="login-email" placeholder="tucorreo@ejemplo.com" required>
+      </div>
+
+      <div class="field">
+        <label for="login-password">Contraseña</label>
+        <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+      </div>
+
+      <button class="btn-primary" type="submit">Iniciar sesión</button>
+    </form>
+
+    <a class="bottom-link" href="/pages/log/registro.html">¿No tienes cuenta? Regístrate aquí</a>
+  </div>
+
+  <script>
+ 
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const role = document.getElementById("login-rol").value;
+      localStorage.setItem("aliviatech_role", role);
+
+      if (role === "paciente") {
+        window.location.href = "/pages/paciente/dashboard.html";
+      } else {
+        window.location.href = "/pages/psicologo/dashboard.html";
+      }
+    });
+  </script>
+
 </body>
 </html>
